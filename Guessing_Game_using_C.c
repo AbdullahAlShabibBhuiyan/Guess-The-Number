@@ -3,7 +3,8 @@
 #include<time.h>
 
 int random_num_gen ();
-void compare ();
+int compare ();
+void result ();
 
 //Code written by
 //Abdullah Al Shabib Bhuiyan
@@ -12,7 +13,7 @@ int main ()
 { 
   printf("\tWelcome to our game\n\tGuess The Number (1-100)\n\n");
   
-  compare ();
+  result ();
   
 return 0;
 }
@@ -29,7 +30,19 @@ int random_num_gen ()
   
 }
 
-void compare () 
+void result () {
+  
+  int steps = compare ();
+  
+  printf("You did it in %d steps.\n", steps);
+  float point = 100.0 * (1.0 /steps);
+  
+  printf("You got %0.f point.",point);
+
+
+}
+
+int compare () 
 { 
 
   int num = random_num_gen ();
@@ -52,11 +65,14 @@ void compare ()
   
   }while(num != unum);
   
-  printf("You did it in %d steps.\n", count);
-  float point = 100.0 * (1.0 /count);
-  printf("You got %0.f point.",point);
-
+  return count;
 }
+
+
+
+
+
+    
 
 
 
